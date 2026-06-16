@@ -4,6 +4,8 @@ import Link from "next/link";
 import {
   TrendingUp,
   Wallet,
+  Plus,
+  BookOpen,
   PiggyBank,
   Users,
   Bot,
@@ -82,6 +84,29 @@ export default function DashboardPage() {
               use it to prove value and get paid; businesses use it to verify
               that vendors actually delivered results.
             </p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              <Link
+                href="/get-paid"
+                className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-white shadow-glow transition-transform hover:-translate-y-0.5"
+              >
+                <Wallet className="h-4 w-4" />
+                Get paid this month
+              </Link>
+              <Link
+                href="/onboarding"
+                className="inline-flex items-center gap-2 rounded-lg border border-border bg-bg px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-accent/40 hover:text-accent"
+              >
+                <Plus className="h-4 w-4" />
+                Add a customer
+              </Link>
+              <Link
+                href="/how-it-works"
+                className="inline-flex items-center gap-2 rounded-lg border border-border bg-bg px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-accent/40 hover:text-accent"
+              >
+                <BookOpen className="h-4 w-4" />
+                How it works
+              </Link>
+            </div>
           </div>
         </section>
 

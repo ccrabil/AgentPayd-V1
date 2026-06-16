@@ -216,3 +216,45 @@ not a dashboard:
 `/billing-cycles` closes the current month into a frozen snapshot and walks it
 through closed → invoiced → paid. Proven by a standalone test run (idempotency,
 append-only, verified-only counting, and snapshot immutability all pass).
+
+---
+
+## Live Events (`/live-events`)
+
+A real-time signal stream reading straight off the ledger: relative timestamps
+(live-ticking), client · agent, source, status, value, margin impact (only
+verified + billable adds revenue), and confidence score with an auto-verified
+marker. Filter by all/pending/verified/rejected. New signals from manual entry,
+CSV, the API, or LINE appear here immediately.
+
+---
+
+## Get Paid — the whole loop in one screen (`/get-paid`)
+
+The beginner-friendly flow that connects every engine, in plain English:
+1. Choose your customer.
+2. See what your AI did this month (verified outcomes + value created).
+3. Pick how you charge — flat monthly, per outcome, or both.
+
+One button then runs the full Paid.ai-style loop: it freezes the billing cycle
+(ledger snapshot), prices it (pricing engine), creates a real invoice, and writes
+a plain-English value receipt ("Your AI created ¥X in verified value… customer
+pays ¥Y… that's a Zx return."). Only verified, billable outcomes are counted.
+Linked from the sidebar and a "Get paid this month" button on the dashboard.
+
+---
+
+## How it works page (`/how-it-works`) + clearer UX
+
+A plain-English first-run explainer that answers "how do the engines work" and
+"where do I enter my numbers":
+- The four steps: Track → Verify → Prove value (Value & ROI) → Get paid, each
+  with a one-line explanation and a button straight to the page that does it.
+- "Why the numbers can be trusted": no black box, verified before billed, built
+  on the client's own assumptions.
+- "Connect your AI agent": the one API call (with key) plus LINE and CSV options.
+- A 3-step setup CTA row.
+
+UX clarity changes: new "Start" nav group (How it works + Get Paid at the top);
+"Unit Economics" relabeled "Value & ROI" with a description that says it's where
+you enter the numbers that drive ROI; dashboard hero now links to How it works.

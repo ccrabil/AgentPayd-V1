@@ -6,9 +6,12 @@ import {
   LayoutDashboard,
   Users,
   Bot,
+  BookOpen,
   Calculator,
   CalendarClock,
   FlaskConical,
+  Radio,
+  Wallet,
   ScrollText,
   Activity,
   Receipt,
@@ -36,12 +39,20 @@ import PilotBadge from "@/components/ui/PilotBadge";
 
 const NAV_SECTIONS = [
   {
+    heading: "Start",
+    items: [
+      { href: "/how-it-works", label: "How it works", icon: BookOpen },
+      { href: "/get-paid", label: "Get Paid", icon: Wallet },
+    ],
+  },
+  {
     heading: "Operate",
     items: [
       { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
       { href: "/clients", label: "Clients", icon: Users },
       { href: "/agents", label: "AI Agents", icon: Bot },
       { href: "/events", label: "Usage Events", icon: Activity },
+      { href: "/live-events", label: "Live Events", icon: Radio },
       { href: "/verify", label: "Verification Queue", icon: BadgeCheck },
       { href: "/automation", label: "Automation", icon: Bot },
       { href: "/audit-log", label: "Audit Log", icon: ScrollText },
@@ -50,8 +61,9 @@ const NAV_SECTIONS = [
   {
     heading: "Monetize",
     items: [
+      { href: "/get-paid", label: "Get Paid", icon: Wallet },
       { href: "/pricing-plans", label: "Pricing Plans", icon: Tag },
-      { href: "/economics", label: "Unit Economics", icon: Calculator },
+      { href: "/economics", label: "Value & ROI", icon: Calculator },
       { href: "/billing-cycles", label: "Billing Cycles", icon: CalendarClock },
       { href: "/invoices", label: "Invoices", icon: Receipt },
       { href: "/value-proof", label: "Value Proof", icon: ShieldCheck },

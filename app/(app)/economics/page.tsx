@@ -59,7 +59,7 @@ export default function EconomicsPage() {
   if (!client) {
     return (
       <div>
-        <Topbar title="Unit Economics" description="Transparent value, ROI, and margin" />
+        <Topbar title="Value &amp; ROI" description="Transparent value, ROI, and margin" />
         <p className="px-6 py-10 text-sm text-muted">Add a client first.</p>
       </div>
     );
@@ -89,8 +89,8 @@ export default function EconomicsPage() {
   return (
     <div>
       <Topbar
-        title="Unit Economics"
-        description="Client assumptions + agency costs + verified events — no black-box ROI"
+        title="Value &amp; ROI"
+        description="Enter your client's business numbers here — this is what drives value and ROI"
         action={
           <select
             value={clientId}
