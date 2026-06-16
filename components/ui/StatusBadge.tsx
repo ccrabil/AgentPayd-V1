@@ -12,7 +12,7 @@ const TONE_STYLES: Record<Tone, string> = {
   success: "bg-successSoft text-success border-success/20",
   warning: "bg-warningSoft text-warning border-warning/20",
   danger: "bg-dangerSoft text-danger border-danger/20",
-  neutral: "bg-white/5 text-muted border-white/10",
+  neutral: "bg-surface2 text-muted border-border",
   accent: "bg-accentSoft text-accent border-accent/20",
 };
 

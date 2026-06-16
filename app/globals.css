@@ -3,25 +3,25 @@
 @tailwind utilities;
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
-  background-color: #0a0b0e;
-  color: #f4f5f7;
+  background-color: #f7f8fa;
+  color: #111827;
 }
 
 /* Subtle dotted grid texture used behind hero / report sections */
 .bg-dot-grid {
   background-image: radial-gradient(
     circle at 1px 1px,
-    rgba(255, 255, 255, 0.06) 1px,
+    rgba(17, 24, 39, 0.05) 1px,
     transparent 0
   );
   background-size: 22px 22px;
 }
 
-/* Slim, unobtrusive scrollbars for the fintech-dashboard feel */
+/* Slim, unobtrusive scrollbars */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -30,16 +30,16 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #23262e;
+  background: #d1d5db;
   border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2f3340;
+  background: #9ca3af;
 }
 
-/* Visible keyboard focus ring, kept brand-consistent */
+/* Visible keyboard focus ring */
 :focus-visible {
-  outline: 2px solid #3d7bff;
+  outline: 2px solid #2563eb;
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -52,7 +52,7 @@ body {
   }
 }
 
-/* Print: keep dark report styling and remove app chrome for PDF export */
+/* Print: clean white report, remove app chrome for PDF export */
 @media print {
   body {
     background: #ffffff;

@@ -32,7 +32,7 @@ export default function StatCard({
         {Icon && (
           <div
             className={`flex h-8 w-8 items-center justify-center rounded-lg ${
-              accent ? "bg-accentSoft text-accent" : "bg-white/5 text-muted"
+              accent ? "bg-accentSoft text-accent" : "bg-surface2 text-muted"
             }`}
           >
             <Icon className="h-4 w-4" />

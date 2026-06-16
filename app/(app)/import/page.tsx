@@ -188,7 +188,7 @@ export default function ImportPage() {
                   </thead>
                   <tbody className="divide-y divide-border">
                     {rows.map((r, i) => (
-                      <tr key={i} className="hover:bg-white/[0.02]">
+                      <tr key={i} className="hover:bg-surface2">
                         <td className="px-4 py-3">
                           {r.valid ? (
                             <span className="inline-flex items-center gap-1 text-success">

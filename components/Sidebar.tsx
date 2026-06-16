@@ -7,6 +7,7 @@ import {
   Users,
   Bot,
   Calculator,
+  CalendarClock,
   FlaskConical,
   ScrollText,
   Activity,
@@ -51,6 +52,7 @@ const NAV_SECTIONS = [
     items: [
       { href: "/pricing-plans", label: "Pricing Plans", icon: Tag },
       { href: "/economics", label: "Unit Economics", icon: Calculator },
+      { href: "/billing-cycles", label: "Billing Cycles", icon: CalendarClock },
       { href: "/invoices", label: "Invoices", icon: Receipt },
       { href: "/value-proof", label: "Value Proof", icon: ShieldCheck },
     ],
@@ -113,7 +115,7 @@ export default function Sidebar() {
                     className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                       isActive
                         ? "bg-accentSoft text-accent"
-                        : "text-muted hover:bg-white/5 hover:text-ink"
+                        : "text-muted hover:bg-surface2 hover:text-ink"
                     }`}
                   >
                     <Icon className="h-4 w-4" />
@@ -130,7 +132,7 @@ export default function Sidebar() {
         <VendorSwitcher />
         <RoleSwitcher />
         <div className="flex items-center gap-3 rounded-lg px-3 py-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 text-xs font-semibold text-ink">
+          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-surface2 text-xs font-semibold text-ink">
             {vendor.name
               .split(" ")
               .map((w) => w[0])
@@ -146,7 +148,7 @@ export default function Sidebar() {
         </div>
         <Link
           href="/"
-          className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-muted transition-colors hover:bg-white/5 hover:text-ink"
+          className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-muted transition-colors hover:bg-surface2 hover:text-ink"
         >
           <LogOut className="h-4 w-4" />
           Sign out

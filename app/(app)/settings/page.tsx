@@ -169,7 +169,7 @@ function Provider({
   return (
     <div className="flex items-center justify-between rounded-xl border border-border bg-bg/40 p-4">
       <div className="flex items-center gap-3">
-        <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-muted">
+        <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface2 text-muted">
           <Icon className="h-4 w-4" />
         </div>
         <div>

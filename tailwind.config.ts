@@ -10,27 +10,24 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Brand palette — AgentPayd Branding sheet, section 05
-        bg: "#0A0A0D", // Void Black
-        surface: "#12161C", // Graphite
-        surface2: "#171B22", // Graphite, slightly lifted (hover states)
-        border: "#1F232B", // Steel
-        ink: "#F2F4F7", // Ice
-        muted: "#8E939B", // Silver
-        subtle: "#5C6370",
-        accent: "#0066FF", // Electric Blue
-        accentSoft: "rgba(0, 102, 255, 0.12)",
-        success: "#22C55E",
-        successSoft: "rgba(34, 197, 94, 0.12)",
-        warning: "#F5A623",
-        warningSoft: "rgba(245, 166, 35, 0.12)",
-        danger: "#EF4444",
-        dangerSoft: "rgba(239, 68, 68, 0.12)",
+        // Tesla-like light system — bright, confident, minimal.
+        bg: "#F7F8FA", // app background (off-white)
+        surface: "#FFFFFF", // cards
+        surface2: "#F3F4F6", // lifted / hover / code surfaces
+        border: "#E5E7EB", // thin borders
+        ink: "#111827", // primary text
+        muted: "#6B7280", // secondary text
+        subtle: "#9CA3AF", // tertiary text
+        accent: "#2563EB", // electric blue
+        accentSoft: "rgba(37, 99, 235, 0.10)",
+        success: "#16A34A",
+        successSoft: "rgba(22, 163, 74, 0.10)",
+        warning: "#D97706",
+        warningSoft: "rgba(217, 119, 6, 0.10)",
+        danger: "#DC2626",
+        dangerSoft: "rgba(220, 38, 38, 0.10)",
       },
       fontFamily: {
-        // Brand typeface is Aeonik (geometric, precise, futuristic).
-        // Aeonik is a commercial font, so Space Grotesk — the closest
-        // open, geometric equivalent — stands in for it everywhere.
         sans: [
           "var(--font-display)",
           "ui-sans-serif",
@@ -45,8 +42,9 @@ const config: Config = {
         ],
       },
       boxShadow: {
-        glow: "0 0 0 1px rgba(0,102,255,0.3), 0 8px 30px -8px rgba(0,102,255,0.4)",
-        card: "0 1px 0 rgba(255,255,255,0.02), 0 8px 24px -12px rgba(0,0,0,0.6)",
+        // Soft, premium light-mode shadows (no heavy dark glow).
+        glow: "0 0 0 1px rgba(37,99,235,0.16), 0 12px 30px -12px rgba(37,99,235,0.30)",
+        card: "0 1px 2px rgba(16,24,40,0.04), 0 10px 24px -16px rgba(16,24,40,0.12)",
       },
       borderRadius: {
         xl: "0.875rem",
@@ -54,7 +52,7 @@ const config: Config = {
       },
       backgroundImage: {
         "grid-fade":
-          "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0)",
+          "radial-gradient(circle at 1px 1px, rgba(17,24,39,0.05) 1px, transparent 0)",
       },
     },
   },

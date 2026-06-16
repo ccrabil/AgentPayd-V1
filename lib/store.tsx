@@ -42,6 +42,11 @@ import {
   assessEvent,
 } from "./automation";
 import {
+  BillingCycleSnapshot,
+  appendSignal,
+  closeBillingCycle,
+} from "./ledger";
+import {
   agents as seedAgents,
   clients as seedClients,
   clientInvitations as seedClientInvites,
@@ -69,6 +74,7 @@ export interface AppState {
   clientInvitations: ClientInvitation[];
   automation: AutomationSettings;
   auditLog: AuditEntry[];
+  billingCycles: BillingCycleSnapshot[];
   toast: string | null;
 }
 
@@ -90,6 +96,7 @@ const initialState: AppState = {
   clientInvitations: seedClientInvites,
   automation: { ...DEFAULT_AUTOMATION_SETTINGS },
   auditLog: [],
+  billingCycles: [],
   toast: null,
 };
 
@@ -133,6 +140,18 @@ type Action =
       assumptions: ClientAssumptions;
     }
   | { type: "SET_AGENT_FINANCIALS"; agentId: string; financials: Partial<Agent> }
+  | {
+      type: "CLOSE_BILLING_CYCLE";
+      clientId: string;
+      periodStart: string;
+      periodEnd: string;
+      costForCycle: number;
+    }
+  | {
+      type: "SET_BILLING_CYCLE_STATUS";
+      id: string;
+      status: BillingCycleSnapshot["status"];
+    }
   | { type: "SET_AUTOMATION_SETTINGS"; settings: Partial<AutomationSettings> }
   | {
       type: "ADD_AUTOMATED_EVENTS";
@@ -175,8 +194,28 @@ function reducer(state: AppState, action: Action): AppState {
       return { ...state, clients: [...state.clients, action.client] };
     case "ADD_AGENT":
       return { ...state, agents: [...state.agents, action.agent] };
-    case "ADD_USAGE_EVENT":
-      return { ...state, usageEvents: [action.event, ...state.usageEvents] };
+    case "ADD_USAGE_EVENT": {
+      // Append through the ledger so a duplicate idempotencyKey can't be added.
+      const result = appendSignal(state.usageEvents, action.event);
+      return { ...state, usageEvents: result.ledger };
+    }
+    case "CLOSE_BILLING_CYCLE": {
+      const snapshot = closeBillingCycle({
+        ledger: state.usageEvents,
+        clientId: action.clientId,
+        periodStart: action.periodStart,
+        periodEnd: action.periodEnd,
+        costForCycle: action.costForCycle,
+      });
+      return { ...state, billingCycles: [snapshot, ...state.billingCycles] };
+    }
+    case "SET_BILLING_CYCLE_STATUS":
+      return {
+        ...state,
+        billingCycles: state.billingCycles.map((c) =>
+          c.id === action.id ? { ...c, status: action.status } : c
+        ),
+      };
     case "SET_AUTOMATION_SETTINGS":
       return {
         ...state,

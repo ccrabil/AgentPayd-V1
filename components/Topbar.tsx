@@ -56,7 +56,7 @@ export default function Topbar({ title, description, action }: TopbarProps) {
               className={`flex shrink-0 items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${
                 isActive
                   ? "bg-accentSoft text-accent"
-                  : "text-muted hover:bg-white/5 hover:text-ink"
+                  : "text-muted hover:bg-surface2 hover:text-ink"
               }`}
             >
               <Icon className="h-4 w-4" />

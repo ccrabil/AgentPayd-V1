@@ -196,7 +196,7 @@ export default function DashboardPage() {
                 </thead>
                 <tbody className="divide-y divide-border">
                   {clients.map((m) => (
-                    <tr key={m.client.id} className="hover:bg-white/[0.02]">
+                    <tr key={m.client.id} className="hover:bg-surface2">
                       <td className="px-5 py-4">
                         <Link
                           href={`/client-portal/${m.client.id}`}
@@ -252,7 +252,7 @@ export default function DashboardPage() {
                 </thead>
                 <tbody className="divide-y divide-border">
                   {recentWork.map((e) => (
-                    <tr key={e.id} className="hover:bg-white/[0.02]">
+                    <tr key={e.id} className="hover:bg-surface2">
                       <td className="px-5 py-3 whitespace-nowrap text-muted">
                         {formatDateTime(e.timestamp)}
                       </td>

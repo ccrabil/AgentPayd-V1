@@ -175,3 +175,44 @@ line-by-line (e.g. `52 × ¥30,000 × 85% show-up = ¥1,326,000`) plus ROI and m
 with their inputs shown. **`/test-scenarios`** — a standalone calculator to
 sanity-check the math from hand-entered counts. The agency never types a value;
 it always comes from counted outcomes × the client's own assumptions.
+
+---
+
+## Design: Tesla-like light theme (v2)
+
+The app is now light-first — bright, minimal, premium fintech. All colour comes
+from semantic Tailwind tokens (`tailwind.config.ts`) so the whole app themes from
+one place: background `#F7F8FA`, cards `#FFFFFF`, text `#111827`/`#6B7280`,
+borders `#E5E7EB`, accent `#2563EB`, success `#16A34A`, warning `#D97706`, danger
+`#DC2626`. Shadows are soft (no dark glow); code surfaces use light gray. A dark
+mode can be reintroduced later via the `dark:` class without touching pages.
+
+---
+
+## Pricing engine (billing spine)
+
+`lib/pricing.ts` — pure, deterministic `computeInvoice()` that turns frozen usage
++ a pricing package + client overrides + performance multipliers into invoice
+line items. Combines every billing component: setup, platform, seat, activity,
+outcome, workflow, usage, overage, credit top-up, discount, and tax placeholder.
+No DB calls, no side effects — same inputs always produce the same invoice, which
+is what makes billing auditable. Verified against test scenarios A, B, C, E, H,
+the duplicate guard, and overrides (all pass).
+
+---
+
+## Signal ledger + billing cycles (the billing spine)
+
+`lib/ledger.ts` gives AgentPayd the two properties that make it a billing system,
+not a dashboard:
+
+1. Append-only with write-time idempotency — `appendSignal()` rejects a duplicate
+   `idempotencyKey` at insert and returns the existing entry, so nothing is billed
+   twice and existing entries are never mutated. `ADD_USAGE_EVENT` now goes through it.
+2. Frozen snapshots — `closeBillingCycle()` freezes the exact verified signal IDs,
+   usage, value, billable amount, and cost for a period. Invoices read the snapshot,
+   so a finalized cycle never changes when new signals arrive.
+
+`/billing-cycles` closes the current month into a frozen snapshot and walks it
+through closed → invoiced → paid. Proven by a standalone test run (idempotency,
+append-only, verified-only counting, and snapshot immutability all pass).

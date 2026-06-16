@@ -50,7 +50,7 @@ export default function ClientsPage() {
                 {metrics.map((m) => {
                   const plan = getPlan(state, m.client.pricingPlanId);
                   return (
-                    <tr key={m.client.id} className="hover:bg-white/[0.02]">
+                    <tr key={m.client.id} className="hover:bg-surface2">
                       <td className="px-5 py-4">
                         <div className="flex items-center gap-3">
                           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accentSoft text-xs font-semibold text-accent">

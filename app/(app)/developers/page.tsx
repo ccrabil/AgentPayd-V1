@@ -165,7 +165,7 @@ export default function DevelopersPage() {
 
 function CodeBlock({ title, code }: { title: string; code: string }) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-border bg-[#0c0f14] shadow-card">
+    <div className="overflow-hidden rounded-2xl border border-border bg-surface2 shadow-card">
       <div className="flex items-center gap-2 border-b border-border px-4 py-2.5">
         <Code2 className="h-4 w-4 text-muted" />
         <span className="font-mono text-xs text-muted">{title}</span>

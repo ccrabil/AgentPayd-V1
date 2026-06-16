@@ -164,7 +164,7 @@ export default function InvestorPage() {
                 </thead>
                 <tbody className="divide-y divide-border">
                   {clients.map((m) => (
-                    <tr key={m.client.id} className="hover:bg-white/[0.02]">
+                    <tr key={m.client.id} className="hover:bg-surface2">
                       <td className="px-5 py-4 font-medium text-ink">
                         {m.client.name}
                       </td>

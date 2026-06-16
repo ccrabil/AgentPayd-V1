@@ -68,7 +68,7 @@ export default function EventsPage() {
                     const client = getClient(state, e.clientId);
                     const agent = getAgent(state, e.agentId);
                     return (
-                      <tr key={e.id} className="hover:bg-white/[0.02]">
+                      <tr key={e.id} className="hover:bg-surface2">
                         <td className="px-5 py-4 whitespace-nowrap text-muted">
                           {formatDateTime(e.timestamp)}
                         </td>

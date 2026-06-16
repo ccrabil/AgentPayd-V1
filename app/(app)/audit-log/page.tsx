@@ -70,7 +70,7 @@ export default function AuditLogPage() {
                     const Icon = ui.icon;
                     const client = getClient(state, e.clientId);
                     return (
-                      <tr key={e.id} className="align-top hover:bg-white/[0.02]">
+                      <tr key={e.id} className="align-top hover:bg-surface2">
                         <td className="whitespace-nowrap px-4 py-3 text-xs text-muted">
                           {formatDateTime(e.timestamp)}
                         </td>

@@ -263,7 +263,7 @@ export default function ClientPortalPage({
                   </thead>
                   <tbody className="divide-y divide-border">
                     {verifiedEvents.map((e) => (
-                      <tr key={e.id} className="hover:bg-white/[0.02]">
+                      <tr key={e.id} className="hover:bg-surface2">
                         <td className="px-5 py-3 whitespace-nowrap text-muted">
                           {formatDate(e.timestamp)}
                         </td>
@@ -301,7 +301,7 @@ export default function ClientPortalPage({
                   key={a.id}
                   className="flex items-center gap-3 rounded-xl border border-border bg-surface p-3"
                 >
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-muted">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-surface2 text-muted">
                     <Bot className="h-4 w-4" />
                   </div>
                   <div>

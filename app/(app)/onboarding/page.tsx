@@ -380,7 +380,7 @@ function Stepper({ step }: { step: number }) {
                   ? "bg-accent text-white"
                   : active
                   ? "bg-accentSoft text-accent ring-1 ring-accent/40"
-                  : "bg-white/5 text-muted"
+                  : "bg-surface2 text-muted"
               }`}
             >
               {done ? <Check className="h-3.5 w-3.5" /> : n}
